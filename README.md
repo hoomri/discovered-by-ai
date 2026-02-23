@@ -1,14 +1,14 @@
-# AI Discoverability
+# Found by AI
 
-**From Invisible to AI's #1 Recommendation**  
+**From Invisible to AI's #1 Recommendation**
 Make your business the go-to choice in ChatGPT, Gemini, Perplexity, Grok, and emerging AI agents — before users even search traditionally.
 
-[![GitHub Pages](https://img.shields.io/badge/Live%20Site-Deployed-brightgreen?logo=githubpages)](https://omrihochman.github.io/ai-discoverability/)  
+[![Live Site](https://img.shields.io/badge/Live%20Site-found--by--ai.com-brightgreen)](https://found-by-ai.com)
 [![X Follow](https://img.shields.io/badge/Follow%20@OmriHochman-blue?logo=x&logoColor=white)](https://x.com/OmriHochman)
 
 ## What This Is
 
-This repository hosts the official landing page for **AI Discoverability Optimization** — a specialized agency service helping NYC (and beyond) local businesses (restaurants, clinics, salons, shops, services) thrive in the AI-first search era.
+This repository hosts the official landing page for **Found by AI** — a specialized agency service helping NYC (and beyond) local businesses (restaurants, clinics, salons, shops, services) thrive in the AI-first search era.
 
 In 2026, most discovery happens inside conversational AI:  
 - Users ask "best NYC sushi for date night" → ChatGPT/Gemini recommends  
@@ -23,7 +23,7 @@ We ensure your business appears where high-intent decisions are made today:
 - As a trusted source LLMs cite confidently  
 - Through direct agent actions (e.g., "book a table" via WebMCP)
 
-Traditional SEO keeps you alive. **AI Discoverability Optimization** makes you dominate the generative age.
+Traditional SEO keeps you alive. **Found by AI** makes you dominate the generative age.
 
 ## Services Overview
 
@@ -46,16 +46,15 @@ This repo deploys a static landing page via **GitHub Pages**.
 - Optional: Next.js / Astro / Vite for static export (if upgrading)
 
 ### Deployment
-1. Files are in the root (or `/docs` folder if preferred)  
-2. Go to **Settings > Pages** → Set source to **main** branch → Root  
-3. Access live at: https://omrihochman.github.io/ai-discoverability/  
-4. Custom domain? Add via Settings > Pages > Custom domain (e.g., aidiscoverability.com)
+1. Files are in the root (or `/docs` folder if preferred)
+2. Go to **Settings > Pages** → Set source to **main** branch → Root
+3. Custom domain configured: **found-by-ai.com**
 
 ### Development
 ```bash
 # Clone
-git clone https://github.com/OmriHochman/ai-discoverability.git
-cd ai-discoverability
+git clone https://github.com/OmriHochman/found-by-ai.git
+cd found-by-ai
 
 # Edit index.html, styles.css, etc.
 # Open locally: just double-click index.html or use live server
