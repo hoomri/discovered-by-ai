@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Found by AI — AI Discoverability for Local Businesses</title>
+  <meta name="description"
+    content="We make sure your business gets recommended by ChatGPT, Gemini, and AI assistants. Stop being invisible. Start getting picked.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Instrument+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --ink: #1a1a18;
+      --paper: #f6f3ee;
+      --warm: #c4510a;
+      --warm-light: #f0dcc8;
+      --grey: #6b6862;
+      --grey-light: #d6d2cb;
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'Instrument Sans', -apple-system, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--sans);
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--paper);
+      border-bottom: 1px solid transparent;
+      transition: border-color .3s, backdrop-filter .3s;
+    }
+
+    nav.scrolled {
+      border-bottom-color: var(--grey-light);
+      background: rgba(246, 243, 238, .92);
+      backdrop-filter: blur(12px);
+    }
+
+    .logo {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      letter-spacing: -.01em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-cta {
+      font-size: .85rem;
+      font-weight: 600;
+      padding: .6rem 1.4rem;
+      border: 1.5px solid var(--ink);
+      border-radius: 2rem;
+      text-decoration: none;
+      color: var(--ink);
+      transition: background .25s, color .25s;
+    }
+
+    .nav-cta:hover {
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8rem 2rem 4rem;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .hero-label {
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--warm);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 5.5vw, 3.8rem);
+      line-height: 1.15;
+      letter-spacing: -.02em;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--warm);
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--grey);
+      max-width: 600px;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: .85rem 2rem;
+      background: var(--ink);
+      color: var(--paper);
+      font-family: var(--sans);
+      font-size: .95rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 2rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, .15);
+    }
+
+    .btn-ghost {
+      font-size: .9rem;
+      color: var(--grey);
+      text-decoration: none;
+      border-bottom: 1px solid var(--grey-light);
+      padding-bottom: 2px;
+      transition: color .2s, border-color .2s;
+    }
+
+    .btn-ghost:hover {
+      color: var(--ink);
+      border-color: var(--ink);
+    }
+
+    /* ── PROOF BAR ── */
+    .proof {
+      padding: 3rem 2rem;
+      border-top: 1px solid var(--grey-light);
+      border-bottom: 1px solid var(--grey-light);
+    }
+
+    .proof-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .proof-item {
+      text-align: center;
+    }
+
+    .proof-item strong {
+      display: block;
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      color: var(--warm);
+    }
+
+    .proof-item span {
+      font-size: .8rem;
+      color: var(--grey);
+      letter-spacing: .04em;
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      padding: 6rem 2rem;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--warm);
+      margin-bottom: .75rem;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      line-height: 1.2;
+      letter-spacing: -.015em;
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      font-size: 1.05rem;
+      color: var(--grey);
+      max-width: 560px;
+      margin-bottom: 3rem;
+      line-height: 1.7;
+    }
+
+    /* ── PROBLEM ── */
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .problem-card {
+      padding: 1.75rem;
+      background: #fff;
+      border-radius: 10px;
+      border: 1px solid var(--grey-light);
+    }
+
+    .problem-card .num {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      color: var(--warm);
+      margin-bottom: .5rem;
+    }
+
+    .problem-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: .5rem;
+    }
+
+    .problem-card p {
+      font-size: .9rem;
+      color: var(--grey);
+      line-height: 1.6;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      counter-reset: step;
+    }
+
+    .step {
+      counter-increment: step;
+      position: relative;
+      padding-top: 2.5rem;
+    }
+
+    .step::before {
+      content: counter(step, decimal-leading-zero);
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--warm);
+    }
+
+    .step h3 {
+      font-size: .95rem;
+      font-weight: 600;
+      margin-bottom: .4rem;
+    }
+
+    .step p {
+      font-size: .88rem;
+      color: var(--grey);
+      line-height: 1.6;
+    }
+
+    /* ── QUOTE ── */
+    .quote-section {
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .quote-section .container {
+      text-align: center;
+      max-width: 700px;
+    }
+
+    .quote-section blockquote {
+      font-family: var(--serif);
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
+      line-height: 1.45;
+      margin-bottom: 1.5rem;
+    }
+
+    .quote-section cite {
+      font-style: normal;
+      font-size: .85rem;
+      color: var(--grey);
+    }
+
+    /* ── LEAD FORM ── */
+    #contact {
+      background: #fff;
+    }
+
+    .form-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .form-copy h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .form-copy p {
+      color: var(--grey);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-copy ul {
+      list-style: none;
+    }
+
+    .form-copy li {
+      position: relative;
+      padding-left: 1.4rem;
+      margin-bottom: .6rem;
+      font-size: .9rem;
+      color: var(--grey);
+    }
+
+    .form-copy li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--warm);
+      font-weight: 600;
+    }
+
+    .lead-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .lead-form label {
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .04em;
+      color: var(--grey);
+      margin-bottom: .15rem;
+      display: block;
+    }
+
+    .lead-form input,
+    .lead-form select,
+    .lead-form textarea {
+      width: 100%;
+      padding: .75rem 1rem;
+      font-family: var(--sans);
+      font-size: .95rem;
+      border: 1.5px solid var(--grey-light);
+      border-radius: 8px;
+      background: var(--paper);
+      color: var(--ink);
+      transition: border-color .2s;
+      outline: none;
+    }
+
+    .lead-form input:focus,
+    .lead-form select:focus,
+    .lead-form textarea:focus {
+      border-color: var(--warm);
+    }
+
+    .lead-form textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .lead-form select {
+      cursor: pointer;
+      appearance: auto;
+    }
+
+    .lead-form .btn-primary {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1rem;
+      margin-top: .5rem;
+    }
+
+    .form-note {
+      font-size: .75rem;
+      color: var(--grey);
+      text-align: center;
+    }
+
+    /* success state */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+
+    .form-success.visible {
+      display: block;
+    }
+
+    .form-success h3 {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      margin-bottom: .5rem;
+    }
+
+    .form-success p {
+      color: var(--grey);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 3rem 2rem;
+      border-top: 1px solid var(--grey-light);
+      text-align: center;
+    }
+
+    footer p {
+      font-size: .8rem;
+      color: var(--grey);
+    }
+
+    footer a {
+      color: var(--grey);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      .form-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .proof-inner {
+        gap: 1.5rem;
+      }
+
+      section {
+        padding: 4rem 1.5rem;
+      }
+    }
+
+    /* ── FADE-IN ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="#" class="logo">AI Discoverability</a>
+    <a href="#contact" class="nav-cta">Get your free audit</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-label fade-up">AI Discoverability for Local Businesses</div>
+    <h1 class="fade-up">People don't Google anymore.<br>They <em>ask AI</em> — and AI<br>should answer with
+      <em>you</em>.</h1>
+    <p class="fade-up">When someone asks ChatGPT or Gemini for the best restaurant, dentist, or plumber nearby, your
+      business either gets recommended — or it doesn't. We make sure you do.</p>
+    <div class="hero-actions fade-up">
+      <a href="#contact" class="btn-primary">Get a free visibility audit</a>
+      <a href="#how" class="btn-ghost">See how it works</a>
+    </div>
+  </section>
+
+  <!-- PROOF BAR -->
+  <div class="proof">
+    <div class="proof-inner fade-up">
+      <div class="proof-item">
+        <strong>65%</strong>
+        <span>of consumers now ask AI<br>before searching Google</span>
+      </div>
+      <div class="proof-item">
+        <strong>0 clicks</strong>
+        <span>needed — AI recommends<br>you directly in conversation</span>
+      </div>
+      <div class="proof-item">
+        <strong>3×</strong>
+        <span>higher intent when a customer<br>comes from an AI recommendation</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROBLEM -->
+  <section id="problem">
+    <div class="container">
+      <div class="section-label fade-up">The shift</div>
+      <h2 class="section-title fade-up">Your website ranks on Google.<br>But AI doesn't know you exist.</h2>
+      <p class="section-subtitle fade-up">Traditional SEO gets you on page one. But when someone asks ChatGPT "best
+        sushi in the West Village," it pulls from a completely different set of signals. Most businesses aren't
+        optimized for that.</p>
+      <div class="problem-grid">
+        <div class="problem-card fade-up">
+          <div class="num">1</div>
+          <h3>AI skips your site</h3>
+          <p>LLMs don't crawl Google results. They rely on structured data, entity signals, and content authority —
+            things most sites lack.</p>
+        </div>
+        <div class="problem-card fade-up">
+          <div class="num">2</div>
+          <h3>Competitors get named</h3>
+          <p>If your competitor has better AI signals, they'll be the one ChatGPT recommends — even if your Yelp rating
+            is higher.</p>
+        </div>
+        <div class="problem-card fade-up">
+          <div class="num">3</div>
+          <h3>It's only accelerating</h3>
+          <p>AI-first search is growing fast. The businesses that optimize now will own the recommendation layer for
+            years.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how" style="background: #fff;">
+    <div class="container">
+      <div class="section-label fade-up">How it works</div>
+      <h2 class="section-title fade-up">From invisible to AI's top pick</h2>
+      <p class="section-subtitle fade-up">A clear process that gets your business into AI recommendations — and keeps
+        you there.</p>
+      <div class="steps">
+        <div class="step fade-up">
+          <h3>AI Visibility Audit</h3>
+          <p>We test what ChatGPT, Gemini, and Perplexity say about your business today — and identify every gap.</p>
+        </div>
+        <div class="step fade-up">
+          <h3>Structured Data &amp; Content</h3>
+          <p>We optimize your site with answer-ready content, schema markup, and the entity signals AI models rely on.
+          </p>
+        </div>
+        <div class="step fade-up">
+          <h3>Authority Building</h3>
+          <p>We strengthen your presence across the sources LLMs trust — citations, reviews, mentions, and original
+            content.</p>
+        </div>
+        <div class="step fade-up">
+          <h3>Monitor &amp; Adapt</h3>
+          <p>AI models change constantly. We track your visibility and adjust so you stay recommended, not just indexed.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <section class="quote-section">
+    <div class="container fade-up">
+      <blockquote>"Traditional SEO keeps you alive. AI discoverability makes you the business people actually choose —
+        before they ever open a browser."</blockquote>
+      <cite>— The case for getting ahead of the AI search shift</cite>
+    </div>
+  </section>
+
+  <!-- LEAD FORM -->
+  <section id="contact">
+    <div class="container">
+      <div class="form-layout">
+        <div class="form-copy fade-up">
+          <h2>See what AI says about your business — for free.</h2>
+          <p>We'll run your business through ChatGPT, Gemini, and Perplexity, and send you a clear report on where you
+            stand and what to fix.</p>
+          <ul>
+            <li>What AI currently recommends instead of you</li>
+            <li>Your structured data &amp; schema gaps</li>
+            <li>Quick wins to improve your AI visibility</li>
+            <li>No commitment, no sales pitch — just clarity</li>
+          </ul>
+        </div>
+        <div>
+          <form class="lead-form fade-up" id="leadForm">
+            <div>
+              <label for="name">Your name</label>
+              <input type="text" id="name" name="name" placeholder="Jane Smith" required>
+            </div>
+            <div>
+              <label for="email">Work email</label>
+              <input type="email" id="email" name="email" placeholder="jane@yourbusiness.com" required>
+            </div>
+            <div>
+              <label for="business">Business name</label>
+              <input type="text" id="business" name="business" placeholder="e.g. Sakura Sushi NYC" required>
+            </div>
+            <div>
+              <label for="type">Business type</label>
+              <select id="type" name="type" required>
+                <option value="" disabled selected>Select one…</option>
+                <option>Restaurant / Food & Drink</option>
+                <option>Health & Wellness</option>
+                <option>Professional Services</option>
+                <option>Retail / E-commerce</option>
+                <option>Home Services</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div>
+              <label for="url">Website URL (optional)</label>
+              <input type="url" id="url" name="url" placeholder="https://…">
+            </div>
+            <button type="submit" class="btn-primary">Send me my free audit</button>
+            <p class="form-note">We'll follow up within 48 hours. No spam, ever.</p>
+          </form>
+          <div class="form-success" id="formSuccess">
+            <h3>You're on the list.</h3>
+            <p>We'll audit your AI visibility and get back to you within 48 hours.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 AI Discoverability · <a href="mailto:hello@example.com">hello@example.com</a></p>
+  </footer>
+
+  <script>
+    // Navbar scroll effect
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Intersection Observer for fade-up animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Form submission (replace with your endpoint)
+    document.getElementById('leadForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Collect form data
+      const data = Object.fromEntries(new FormData(this));
+      console.log('Lead captured:', data);
+
+      // TODO: Replace with your actual endpoint, e.g.:
+      // fetch('https://your-api.com/leads', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify(data)
+      // });
+
+      // Show success
+      this.style.display = 'none';
+      document.getElementById('formSuccess').classList.add('visible');
+    });
+  </script>
+</body>
+
+</html>
